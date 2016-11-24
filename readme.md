@@ -8,7 +8,7 @@ The project is just initialized and has still a lot of work.
 
 ### What is already implemented
 
-Decoding and encoding wav files.
+- Decoding and encoding wav files
 
 ### What has to be implemented
 
@@ -19,6 +19,7 @@ Decoding and encoding wav files.
 
 * [wav-encoder](https://github.com/mohayonao/wav-encoder) - promise-based wav encoder
 * [wav-decoder](https://github.com/mohayonao/wav-decoder) - promise-based wav decoder
+* [Startup.wav](https://github.com/dugagjinll/online-codec/blob/master/Startup.wav) - Startup sound Windows XP
 
 ## Author
 
