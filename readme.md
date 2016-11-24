@@ -19,7 +19,7 @@ The project is just initialized and has still a lot of work.
 
 * [wav-encoder](https://github.com/mohayonao/wav-encoder) - promise-based wav encoder
 * [wav-decoder](https://github.com/mohayonao/wav-decoder) - promise-based wav decoder
-* [Startup.wav](https://github.com/dugagjinll/online-codec/blob/master/Startup.wav) - Startup sound Windows XP
+* [output.wav](https://github.com/dugagjinll/online-codec/blob/master/Startup.wav) - Startup sound Windows XP
 
 ## Author
 

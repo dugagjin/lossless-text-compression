@@ -10,20 +10,15 @@ const readFile = (filepath) => {
     });
 };
 
-let samplerate, leftAudio, rightAudio;
-
+let audio = {};
 readFile("Startup.wav").then((buffer) => {
     return WavDecoder.decode(buffer);
 }).then(function(audioData) {
-    samplerate = audioData.sampleRate;
-    leftAudio = audioData.channelData[0];
-    rightAudio = audioData.channelData[1];
-}).then(() => {
-    const whiteNoise1sec = {
-        sampleRate: samplerate,
-        channelData: [leftAudio, rightAudio]
+    const output = {
+        sampleRate: audioData.sampleRate,
+        channelData: [audioData.channelData[0], audioData.channelData[1]]
     };
-    WavEncoder.encode(whiteNoise1sec).then((buffer) => {
+    WavEncoder.encode(output).then((buffer) => {
         fs.writeFileSync("output.wav", new Buffer(buffer));
     });
-});
+})
