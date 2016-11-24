@@ -1,0 +1,28 @@
+{
+  "name": "online-codec",
+  "version": "0.1.0",
+  "description": "example of online wav compression",
+  "main": "codec.js",
+  "dependencies": {
+    "wav-decoder": "^1.1.0",
+    "wav-encoder": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dugagjinll/online-codec.git"
+  },
+  "keywords": [
+    "online",
+    "codec"
+  ],
+  "author": "Dugagjin Lashi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dugagjinll/online-codec/issues"
+  },
+  "homepage": "https://github.com/dugagjinll/online-codec#readme"
+}
