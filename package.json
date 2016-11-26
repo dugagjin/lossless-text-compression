@@ -1,12 +1,9 @@
 {
   "name": "online-codec",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "example of online wav compression",
   "main": "codec.js",
-  "dependencies": {
-    "wav-decoder": "^1.1.0",
-    "wav-encoder": "^1.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
