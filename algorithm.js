@@ -1,45 +1,43 @@
 module.exports = function() {
     this.encode = function(s) {
-        var dict = {};
-        var data = (s + "").split("");
-        var out = [];
-        var currChar;
-        var phrase = data[0];
-        var code = 256;
-        for (var i = 1; i < data.length; i++) {
-            currChar = data[i];
-            if (dict[phrase + currChar] != null) {
-                phrase += currChar;
+        let dictionary = {},
+            out = [],
+            currentChar,
+            phrase = s[0],
+            code = 256;
+        s = (s + "").split("");
+        for (let i = 1; i < s.length; i++) {
+            currentChar = s[i];
+            if (dictionary[phrase + currentChar] != null) {
+                phrase += currentChar;
             } else {
-                out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-                dict[phrase + currChar] = code;
+                out.push(phrase.length > 1 ? dictionary[phrase] : phrase.charCodeAt(0));
+                dictionary[phrase + currentChar] = code;
                 code++;
-                phrase = currChar;
+                phrase = currentChar;
             }
         }
-        out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-
+        out.push(phrase.length > 1 ? dictionary[phrase] : phrase.charCodeAt(0));
         return out;
     }
 
     this.decode = function(data) {
-        var dict = {};
-        var currChar = String.fromCharCode(data[0]);
-        var oldPhrase = currChar;
-        var out = [currChar];
-        var code = 256;
-        var phrase;
-        for (var i = 1; i < data.length; i++) {
-
-            var currCode = data[i];
+        let dictionary = {},
+            currentChar = String.fromCharCode(data[0]),
+            oldPhrase = currentChar,
+            out = [currentChar],
+            code = 256,
+            phrase;
+        for (let i = 1; i < data.length; i++) {
+            let currCode = data[i];
             if (currCode < 256) {
                 phrase = String.fromCharCode(data[i]);
             } else {
-                phrase = dict[currCode] ? dict[currCode] : (oldPhrase + currChar);
+                phrase = dictionary[currCode] ? dictionary[currCode] : (oldPhrase + currentChar);
             }
             out += phrase;
-            currChar = phrase[0];
-            dict[code] = oldPhrase + currChar;
+            currentChar = phrase[0];
+            dictionary[code] = oldPhrase + currentChar;
             code++;
             oldPhrase = phrase;
         }
