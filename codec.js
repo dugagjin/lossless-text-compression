@@ -9,10 +9,8 @@ stream.on('readable', function() {
         str += String.fromCharCode(parseInt(chunk.toString('hex'), 16));
     }
     let comp = encode(str);
-    let decomp = decode(encode(str));
-    console.log(str.length);
-    console.log(comp.length);
-    console.log(decomp.length);
-    console.log('\n');
+    let decomp = decode(comp);
+    console.log('input: ' + str.length +'\tcompressed: '+ comp.length + '\tdecompressed: ' + decomp.length);
+
     fs.writeFileSync('output.wav', decomp, 'binary');
 })
