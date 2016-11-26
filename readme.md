@@ -17,7 +17,7 @@ There is a Algorithm file and a main file called codec.js
 
 ## Built With
 
-* [output.wav](https://github.com/dugagjinll/online-codec/blob/master/Startup.wav) - Startup sound Windows XP
+* [Startup.wav](https://github.com/dugagjinll/online-codec/blob/master/Startup.wav) - Startup sound Windows XP
 
 ## Author
 
