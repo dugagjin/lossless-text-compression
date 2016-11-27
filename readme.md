@@ -9,11 +9,12 @@ There is a Algorithm file and a main file called codec.js
 ### What is already implemented
 
 - Decoding and encoding wav files
-- compression algorithm (LZW)
+- Compression algorithm (LZW)
 
 ### What has to be implemented
 
-- online GUI
+- Online GUI
+- Saving the files (a attempt was made in codec.js, the attempt is commented)
 
 ## Built With
 
