@@ -4,7 +4,7 @@ The goal of this project is to compress wav files online.
 
 ## Files
 
-There is a Algorithm file and a main file called codec.js
+There is an Algorithm file and a main file called codec.js
 
 ### What is already implemented
 
@@ -14,7 +14,7 @@ There is a Algorithm file and a main file called codec.js
 ### What has to be implemented
 
 - Online GUI
-- Saving the files (a attempt was made in codec.js, the attempt is commented)
+- Saving the files (an attempt was made in codec.js, the attempt is commented)
 
 ## Built With
 
