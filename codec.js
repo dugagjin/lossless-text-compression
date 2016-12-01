@@ -8,11 +8,14 @@ stream.on('readable', () => {
     while (chunk = stream.read(1)) {
         str += String.fromCharCode(parseInt(chunk.toString('hex'), 16));
     }
+});
+stream.on('end', () => {
     let comp = encode(str);
     let decomp = decode(comp);
     console.log('input: ' + str.length +'\tcompressed: '+ comp.length + '\tdecompressed: ' + decomp.length);
     fs.writeFileSync('output.wav', decomp, 'binary');
 });
+
 
 /*
 stream.on('end', () => {
