@@ -5,6 +5,7 @@ npm-debug.log*
 
 # Runtime data
 *.txt
+output.wav
 pids
 *.pid
 *.seed
