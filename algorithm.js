@@ -1,11 +1,13 @@
-module.exports = function() {
-    this.encode = function(s) {
-        let dictionary = {},
-            out = [],
-            currentChar,
-            phrase = s[0],
-            code = 256;
-        s = (s + "").split("");
+
+class Algorithm {
+    encode(s) {
+        let dictionary = {}
+        let out = [];
+        let currentChar;
+        let phrase = s[0];
+        let code = 256;
+        s = String(s).split("");
+
         for (let i = 1; i < s.length; i++) {
             currentChar = s[i];
             if (dictionary[phrase + currentChar] != null) {
@@ -20,14 +22,14 @@ module.exports = function() {
         out.push(phrase.length > 1 ? dictionary[phrase] : phrase.charCodeAt(0));
         return out;
     }
+    decode(data) {
+        let dictionary = {}
+        let currentChar = String.fromCharCode(data[0]);
+        let oldPhrase = currentChar;
+        let out = [currentChar];
+        let code = 256;
+        let phrase;
 
-    this.decode = function(data) {
-        let dictionary = {},
-            currentChar = String.fromCharCode(data[0]),
-            oldPhrase = currentChar,
-            out = [currentChar],
-            code = 256,
-            phrase;
         for (let i = 1; i < data.length; i++) {
             let currCode = data[i];
             if (currCode < 256) {
@@ -35,6 +37,7 @@ module.exports = function() {
             } else {
                 phrase = dictionary[currCode] ? dictionary[currCode] : (oldPhrase + currentChar);
             }
+            // Adding to an array? Don't you mean .push() ??????????
             out += phrase;
             currentChar = phrase[0];
             dictionary[code] = oldPhrase + currentChar;
@@ -44,3 +47,5 @@ module.exports = function() {
         return out;
     }
 }
+
+module.exports = Algorithm
