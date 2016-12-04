@@ -2,8 +2,9 @@ const fs = require("fs");
 require('./algorithm.js')();
 
 audioWithSave();
-audioWithoutSave();
-text();
+//audioWithoutSave();
+//text();
+
 function audioWithSave() {
     let str = fs.readFileSync('Startup.wav', 'binary');
     let comp = encode(str);
