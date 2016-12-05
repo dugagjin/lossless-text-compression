@@ -8,8 +8,8 @@ const input = path.join(__dirname, 'input.wav') // smaller file for development
 const output = path.join(__dirname, 'output.txt')
 //-----------------------------------------------------
 
-const content = fs.readFileSync(input, null)
-const encoded = lzw.encode(content, 'utf8');
+const content = fs.readFileSync(input)
+const encoded = lzw.encode(content);
 const stream  = fs.createWriteStream(output)
 
 stream.write(encoded)
@@ -28,8 +28,6 @@ stream.on('finish', () => {
 
     console.log('Hash (original):\t', checksum(content))
     console.log('Hash  (decoded):\t', checksum(decoded))
-
-    //Buffer.dif
 
     //console.log('Hash (input.wav):\t', checksum(content))
     //console.log('Hash (output.wav):\t', checksum(decoded))

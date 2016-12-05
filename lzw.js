@@ -99,5 +99,5 @@ module.exports.decode = function(src) {
         }
     }
 
-    return new Buffer(buf);
+    return Buffer.from(buf, 'utf8');
 }
