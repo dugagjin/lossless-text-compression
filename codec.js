@@ -8,39 +8,36 @@ const input = path.join(__dirname, 'input.wav') // smaller file for development
 const output = path.join(__dirname, 'output.txt')
 //-----------------------------------------------------
 
-const content = fs.readFileSync(input)
+const content = fs.readFileSync(input, 'utf8')
 const encoded = lzw.encode(content);
-const stream  = fs.createWriteStream(output)
 
+const stream = fs.createWriteStream(output)
 stream.write(encoded)
 stream.end()
 stream.on('finish', () => {
-    const readBytes = fs.readFileSync(output)
-    const decoded = lzw.decode(Buffer.from(readBytes))
+    const readBytes = fs.readFileSync(output, 'utf8')
 
-    console.log('content:', Buffer.byteLength(content), content)
-    console.log('encoded:', Buffer.byteLength(encoded), encoded)
-    console.log('decoded:', Buffer.byteLength(decoded), decoded)
-
-    if (checksum(encoded) !== checksum(readBytes)) {
+    if (checksum(encoded) !== checksum(readBytes) || encoded !== readBytes) {
         throw new Error('Checksum failed, we are not writing the files correctly')
     }
 
-    console.log('Hash (original):\t', checksum(content))
-    console.log('Hash  (decoded):\t', checksum(decoded))
+    const decoded = lzw.decode(readBytes.toString('utf8'))
+    const wstream = fs.createWriteStream('output.wav')
 
-    //console.log('Hash (input.wav):\t', checksum(content))
-    //console.log('Hash (output.wav):\t', checksum(decoded))
-    /*console.log('Content (input.wav):\t', content)
-    console.log('Content (output.wav):\t', decoded)
-    console.log('Before enconding:', content.length)
-    console.log('After enconding:', encoded.length)
-    console.log('After decoding:', decoded.length)*/
+    wstream.write(decoded)
+    wstream.end()
+    wstream.on('finish', () => {
+        console.log('Before enconding:', content.length)
+        console.log('After enconding:', encoded.length)
+        console.log('After decoding:', decoded.length)
+        console.log('---------------------------------------')
+        console.log('Hash (input.wav):\t', checksum(content))
+        console.log('Hash (output.wav):\t', checksum(decoded))
+        console.log('---------------------------------------')
+        console.log('Content (input.wav):\t', content)
+        console.log('Content (output.wav):\t', decoded)
+    })
 })
-
-
-
-//fs.writeFileSync('output.wav', decoded, 'binary')
 
 // Helper for getting md5 hash
 function checksum(str, algorithm, encoding) {
