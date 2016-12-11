@@ -4,7 +4,7 @@ module.exports = function() {
             out = [],
             currentChar,
             phrase = s[0],
-            code = 256;
+            code = 57344;
         s = (s + "").split("");
         for (let i = 1; i < s.length; i++) {
             currentChar = s[i];
@@ -26,11 +26,11 @@ module.exports = function() {
             currentChar = String.fromCharCode(data[0]),
             oldPhrase = currentChar,
             out = [currentChar],
-            code = 256,
+            code = 57344,
             phrase;
         for (let i = 1; i < data.length; i++) {
             let currCode = data[i];
-            if (currCode < 256) {
+            if (currCode < 57344) {
                 phrase = String.fromCharCode(data[i]);
             } else {
                 phrase = dictionary[currCode] ? dictionary[currCode] : (oldPhrase + currentChar);
