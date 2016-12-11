@@ -13,7 +13,16 @@ There is an Algorithm file and a main file called codec.js
 
 ### What has to be implemented
 
-- Saving the files (an attempt was made in codec.js, the attempt is commented)
+Saving the file:
+- It has to be saved as binary and not UTF-8. Otherwise the file will not always be smaller than the original file.
+- It does not matter with which encoding do we read the compressed file. But in order to decode it with LZW it has to be converted to UTF-8.
+
+I have tried by using the following but with no success:
+```
+function encode_utf8(s) {
+  return unescape(encodeURIComponent(s));
+}
+```
 
 ## Built With
 

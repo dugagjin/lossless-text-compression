@@ -5,8 +5,8 @@ const lzw = require('./lzw.js');
 let str = fs.readFileSync('Startup.wav', 'binary');
 let comp = lzw.encode(str);
 
-fs.writeFileSync('compressed.txt', comp, 'binary');
-let readed = fs.readFileSync('compressed.txt', 'binary');
+fs.writeFileSync('compressed.txt', comp, 'utf8');
+let readed = fs.readFileSync('compressed.txt', 'utf8');
 
 let decomp = lzw.decode(readed);
 fs.writeFileSync('output.wav', decomp, 'binary');

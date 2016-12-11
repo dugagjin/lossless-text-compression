@@ -19,9 +19,7 @@ lzw.prototype.encode = function(s) {
         }
     }
     out.push(phrase.length > 1 ? dictionary[phrase] : phrase.codePointAt(0));
-
-    let outAsText = out.map(e => String.fromCodePoint(e)).join('');
-    return outAsText;
+    return out.map(e => String.fromCodePoint(e)).join('');
 }
 
 lzw.prototype.decode = function(dataAsText) {
