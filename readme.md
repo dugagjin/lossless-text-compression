@@ -13,7 +13,6 @@ There is an Algorithm file and a main file called codec.js
 
 ### What has to be implemented
 
-- Online GUI
 - Saving the files (an attempt was made in codec.js, the attempt is commented)
 
 ## Built With
