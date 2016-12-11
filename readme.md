@@ -1,10 +1,11 @@
 # online-codec
 
-The goal of this project is to compress wav files online.
+The goal of this project is to compress wav files online. But if it works with wav files, then it should work with almost everything. :)
 
 ## Files
 
-There is an Algorithm file and a main file called codec.js
+There is an LZW file and a main file called codec.js
+In case of there are a lot of zeros in after encoding with LZW. A runlength algorithm is also implemented in runlength.js
 
 ### What is already implemented
 
