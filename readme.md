@@ -4,8 +4,7 @@ The goal of this project is to compress wav files online. But if it works with w
 
 ## Files
 
-There is an LZW file and a main file called codec.js
-In case of there are a lot of zeros in after encoding with LZW. A runlength algorithm is also implemented in runlength.js
+There is an LZW file and a main file called codec.js.
 
 ### What is already implemented
 
