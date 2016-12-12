@@ -23,8 +23,8 @@ lzw.prototype.encode = function(s) {
 }
 
 lzw.prototype.decode = function(dataAsText) {
-    let data = [...dataAsText].map(e => e.codePointAt(0));
-    let dictionary = {},
+    let data = [...dataAsText].map(e => e.codePointAt(0)),
+        dictionary = {},
         currentChar = String.fromCodePoint(data[0]),
         oldPhrase = currentChar,
         out = [currentChar],
