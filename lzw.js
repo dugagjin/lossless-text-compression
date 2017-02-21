@@ -1,7 +1,7 @@
 const lzw = function LZW() {}
 
-lzw.prototype.encode = function(s) {
-    return new Promise(function(resolve, reject) {
+lzw.prototype.encode = s => {
+    return new Promise((resolve, reject) => {
         try {
             let dictionary = {},
                 out = [],
@@ -28,8 +28,8 @@ lzw.prototype.encode = function(s) {
     })
 }
 
-lzw.prototype.decode = function(dataAsText) {
-    return new Promise(function(resolve, reject) {
+lzw.prototype.decode = dataAsText => {
+    return new Promise((resolve, reject) => {
         try {
             let data = [...dataAsText].map(e => e.codePointAt(0)),
                 dictionary = {},
