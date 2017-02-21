@@ -1,32 +1,36 @@
-# online-codec
+# Lossless text compression
 
-The goal of this project is to compress wav files online. But if it works with wav files, then it should work with almost everything. :)
+## Benchmark
 
-## Files
+original size | compressed size   | compression speed  | decompression based
+---|---|---|---
+56.1 kb | 35.5 kb | 35.57 ms | 21.24 ms
+90 kb | 52.8 kb | 46.96 ms | 30.52 ms
 
-There is an LZW file and a main file called codec.js.
+## How to use
 
-### What is already implemented
+#### Encode
 
-- Decoding and encoding wav files
-- Compression algorithm (LZW)
-
-### What has to be implemented
-
-Saving the file:
-- It has to be saved as binary and not UTF-8. Otherwise the file will not always be smaller than the original file.
-- It does not matter with which encoding do we read the compressed file. But in order to decode it with LZW it has to be converted to UTF-8.
-
-I have tried by using the following but with no success:
 ```
-function encode_utf8(s) {
-  return unescape(encodeURIComponent(s));
-}
+const lzw = require('./lzw.js');
+originalString = "TOBEORNOTTOBEORTOBEORNOTTOBEORTOBEORNOT"
+
+lzw.encode(originalString)
+    .catch(error => console.log(error))
+    .then(compressed => console.log(compressed));
 ```
 
-## Built With
+#### Decode
 
-* [Startup.wav](https://github.com/dugagjinll/online-codec/blob/master/Startup.wav) - Startup sound Windows XP
+```
+const lzw = require('./lzw.js');
+compressedString = "TOBEORNOTT"
+
+lzw.decode(compressedString)
+    .catch(error => console.log(error))
+    .then(decompressed => console.log(decompressed));
+
+```
 
 ## Author
 
