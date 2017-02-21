@@ -13,8 +13,8 @@ original size | compressed size   | compression speed  | decompression based
 
 ```
 const lzw = require('./lzw.js');
-originalString = "TOBEORNOTTOBEORTOBEORNOTTOBEORTOBEORNOT"
 
+originalString = "TOBEORNOTTOBEORTOBEORNOTTOBEORTOBEORNOT"
 lzw.encode(originalString)
     .catch(error => console.log(error))
     .then(compressed => console.log(compressed));
@@ -24,8 +24,8 @@ lzw.encode(originalString)
 
 ```
 const lzw = require('./lzw.js');
-compressedString = "TOBEORNOTT"
 
+compressedString = "TOBEORNOTT"
 lzw.decode(compressedString)
     .catch(error => console.log(error))
     .then(decompressed => console.log(decompressed));
