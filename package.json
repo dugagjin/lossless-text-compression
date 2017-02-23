@@ -1,20 +1,21 @@
 {
-  "name": "online-codec",
-  "version": "0.2.0",
-  "description": "example of online wav compression",
-  "main": "codec.js",
+  "name": "lossless-text-compression",
+  "version": "1.0.1",
+  "description": "lossless text compression",
+  "main": "lzw.js",
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node example.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dugagjinll/online-codec.git"
+    "url": "git+https://github.com/dugagjinll/lossless-text-compression.git"
   },
   "keywords": [
-    "online",
-    "codec"
+    "lossless",
+    "text",
+    "compression"
   ],
   "author": "Dugagjin Lashi",
   "license": "MIT",
