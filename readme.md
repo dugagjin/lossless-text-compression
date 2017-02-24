@@ -20,8 +20,7 @@ npm install lossless-text-compression
 ```
 const ltc = require('lossless-text-compression');
 
-originalString = "TOBEORNOTTOBEORTOBEORNOTTOBEORTOBEORNOT"
-ltc.encode(originalString)
+ltc.encode('1121231234123451234561234567123456781234567891234567890')
     .catch(error => console.log(error))
     .then(compressed => console.log(compressed));
 ```
@@ -31,12 +30,15 @@ ltc.encode(originalString)
 ```
 const ltc = require('lossless-text-compression');
 
-compressedString = "TOBEORNOTT"
-ltc.decode(compressedString)
+ltc.decode('11234567890')
     .catch(error => console.log(error))
     .then(decompressed => console.log(decompressed));
-
 ```
+
+#### Remarks
+
+- Compressed files should be readed/saved in UTF-8.
+- decompressed files or orignal files should be readed/saved in binary.
 
 ## Author
 
