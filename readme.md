@@ -42,7 +42,7 @@ console.log(
 #### With files
 
 ```
-const { encode, decode } = require('./ltc.js');
+const { encode, decode } = require('lossless-text-compression');
 const { readFileSync, writeFileSync } = require('fs');
   
 const fileName = ...;           // for example: loremipsum.txt
