@@ -2,10 +2,14 @@
 
 ## Benchmark
 
-original size | compressed size   | compression speed  | decompression based
----|---|---|---
-56.1 kb | 35.5 kb | 35.57 ms | 21.24 ms
-90 kb | 52.8 kb | 46.96 ms | 30.52 ms
+The performance gets better with the number of words. 
+
+words | compressed | original | encode  | decode
+---|---|---|---|---
+100 000 | 226 kB | 654 kB | 381 ms | 51 ms
+10 000 | 25 kB | 65 kB | 43 ms | 8.7 ms
+1 000 | 4.4 kB | 6.4 kB | 6.7 ms | 1.5 ms
+100 | 0.62 kB | 0.73 kB | 0.44 ms | 0.16 ms
 
 ## Install
 
@@ -18,27 +22,45 @@ npm install lossless-text-compression
 #### Encode
 
 ```
-const ltc = require('lossless-text-compression');
+const { encode } = require('lossless-text-compression');
 
-ltc.encode('1121231234123451234561234567123456781234567891234567890')
-    .catch(error => console.log(error))
-    .then(compressed => console.log(compressed));
+console.log(
+    encode('1121231234123451234561234567123456781234567891234567890')
+);
 ```
 
 #### Decode
 
 ```
-const ltc = require('lossless-text-compression');
+const { decode } = require('lossless-text-compression');
 
-ltc.decode('11234567890')
-    .catch(error => console.log(error))
-    .then(decompressed => console.log(decompressed));
+console.log(
+    decode('11234567890')
+);
 ```
 
-#### Remarks
+#### With files
 
-- Compressed files should be readed/saved in UTF-8.
-- decompressed files or orignal files should be readed/saved in binary.
+```
+const { encode, decode } = require('./ltc.js');
+const { readFileSync, writeFileSync } = require('fs');
+  
+const fileName = ...;           // for example: loremipsum.txt
+const compressedFile = ...;     // for example: encoded.txt
+const restoredFile = ...;       // for example: decoded.txt
+
+// read yourfile file
+const content = readFileSync(fileName, 'utf-8');
+
+// encode and save the content
+writeFileSync(compressedFile, encode(content), 'ucs2');
+
+// read and decode the encoded content
+const decoded = decode(readFileSync(compressedFileName, 'ucs2'));
+
+// save the restored content
+writeFileSync(restoredFileName, decoded, 'utf-8');
+```
 
 ## Author
 

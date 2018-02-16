@@ -1,9 +1,20 @@
-const ltc = require('./ltc.js');
+const { encode, decode } = require('./ltc.js');
+const { readFileSync, writeFileSync } = require('fs');
+  
+const textFile = ...;           // for example: loremipsum.txt
+const compressedFile = ...;     // for example: encoded.txt
+const restoredFile = ...;       // for example: decoded.txt
 
-ltc.encode("1121231234123451234561234567123456781234567891234567890")
-    .catch(error => console.log(error))
-    .then(compressed => console.log(compressed));
+// read yourfile file
+const content = readFileSync(textFile, 'utf-8');
 
-ltc.decode("11234567890")
-    .catch(error => console.log(error))
-    .then(decompressed => console.log(decompressed));
+// save encoded the content
+writeFileSync(compressedFile, encode(content), 'ucs2');
+
+// read and decode the encoded content
+const decoded = decode(readFileSync(compressedFile, 'ucs2'));
+
+// save the restored content
+writeFileSync(restoredFile, decoded, 'utf-8');
+
+
