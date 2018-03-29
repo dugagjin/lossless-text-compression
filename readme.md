@@ -21,7 +21,7 @@ npm install lossless-text-compression
 
 #### Encode
 
-```
+```js
 const { encode } = require('lossless-text-compression');
 
 console.log(
@@ -31,7 +31,7 @@ console.log(
 
 #### Decode
 
-```
+```js
 const { decode } = require('lossless-text-compression');
 
 console.log(
@@ -41,7 +41,7 @@ console.log(
 
 #### With files
 
-```
+```js
 const { encode, decode } = require('lossless-text-compression');
 const { readFileSync, writeFileSync } = require('fs');
   
